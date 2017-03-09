@@ -1,7 +1,10 @@
 require 'spec_helper'
 
 describe User do
-  before { @user = User.new(name: 'Example User', email: 'user@example.com') }
+  before do
+    @user = User.new(name: 'Example User', email: 'user@example.com')
+  end
+
   subject { @user }
 
   it { should respond_to(:name) }
@@ -42,5 +45,15 @@ describe User do
         expect(@user).to be_valid
       end
     end
+  end
+
+  describe "when email address is already taken" do
+    before do
+      user_with_same_email = @user.dup
+      user_with_same_email.email = @user.email.upcase
+      user_with_same_email.save
+    end
+
+    it { should_not be_valid }
   end
 end
