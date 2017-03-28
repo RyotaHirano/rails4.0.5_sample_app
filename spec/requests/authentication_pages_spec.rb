@@ -14,12 +14,12 @@ describe "AuthenticationPages" do
       before { click_button 'Sign in' }
 
       it { should have_title('Sign in') }
-      it { should have_selector('div.alert.alert-error', text: 'Invalid') }
+      it { should have_error_message('Invalid') }
 
       describe "after visiting another page" do
         before { click_link "Home" }
 
-        it { should_not have_error_message('Invalid') }
+        it { should_not have_error_message('') }
       end
     end
 
