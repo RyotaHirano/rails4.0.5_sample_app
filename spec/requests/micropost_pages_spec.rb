@@ -60,9 +60,8 @@ describe "MicropostPages" do
 
     describe "as incorrect user" do
       let(:incorrect_user) { FactoryGirl.create(:user) }
-
       before do
-        FactoryGirl.create(:micropost, user: incorrect_user)
+        sign_in incorrect_user
         visit user_path(incorrect_user)
       end
 
