@@ -105,7 +105,7 @@ describe "AuthenticationPages" do
 
       end
 
-      describe "in the Microposts controller" do
+      describe "in the Microposts controllers" do
 
         describe "submitting to the create action" do
           before { post microposts_path }
@@ -120,7 +120,7 @@ describe "AuthenticationPages" do
         end
       end
 
-      describe "in the Relationships controller" do
+      describe "in the Relationships controllers" do
         describe "submitting to the create action" do
           before { post relationships_path }
           specify { expect(response).to redirect_to(signin_path) }
